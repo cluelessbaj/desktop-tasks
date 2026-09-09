@@ -1,2 +1,4 @@
 localwebview/** linguist-vendored
+localwebview/** linguist-detectable=false
 assets/marked.min.js linguist-vendored
+assets/marked.min.js linguist-detectable=false
