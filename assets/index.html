@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Tasks</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="marked.min.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <div class="desktop-card">
+            <!-- Header (Draggable) -->
+            <div class="header-box" id="header-box">
+                <div class="header-left">
+                    <span class="header-title">WORKSPACE</span>
+                    <span class="header-date" id="header-date">Today</span>
+                </div>
+                <div class="header-badge" id="pending-badge">0 pending</div>
+            </div>
+
+            <!-- Tabs Switcher -->
+            <div class="tab-container">
+                <button class="tab-btn active" id="tab-btn-tasks" onclick="switchTab('tasks')">Tasks</button>
+                <button class="tab-btn" id="tab-btn-notes" onclick="switchTab('notes')">Notes</button>
+            </div>
+
+            <!-- Content Stack -->
+            <div class="tab-content">
+                <!-- Tasks Pane -->
+                <div class="tab-pane active" id="pane-tasks">
+                    <div class="task-list-container" id="task-list">
+                        <!-- Tasks dynamically populated -->
+                    </div>
+                    <div class="task-add-box">
+                        <input type="text" class="task-input" id="task-input" placeholder="Add task (e.g. Sync @17:00)..." autofocus>
+                        <button class="task-add-btn" id="task-add-btn" title="Add Task">+</button>
+                    </div>
+                </div>
+
+                <!-- Notes Pane -->
+                <div class="tab-pane" id="pane-notes">
+                    <div class="notes-toolbar">
+                        <button class="tool-btn" onclick="insertMarkdown('# ')">H1</button>
+                        <button class="tool-btn" onclick="insertMarkdown('## ')">H2</button>
+                        <button class="tool-btn" onclick="wrapSelection('**', '**')">B</button>
+                        <button class="tool-btn" onclick="wrapSelection('*', '*')">I</button>
+                        <button class="tool-btn" onclick="wrapSelection('`', '`')">` `</button>
+                        <button class="tool-btn" onclick="insertMarkdown('- ')">•</button>
+                        <button class="tool-btn" onclick="insertMarkdown('- [ ] ')">☑</button>
+                        <div class="tool-btn-spacer"></div>
+                        <button class="tool-btn mode-btn" id="btn-mode-toggle" onclick="toggleNoteMode()" title="Toggle Edit / Preview (Ctrl+E)">✎ Edit</button>
+                        <button class="tool-btn" onclick="copyNotes()" title="Copy Markdown">📋</button>
+                    </div>
+                    <div class="notes-container">
+                        <div id="notes-preview" style="display: block;" ondblclick="setNoteMode('edit')"></div>
+                        <textarea id="notes-editor" style="display: none;" placeholder="Write thoughts or documentation in Markdown..."></textarea>
+                    </div>
+                    <div class="notes-footer">
+                        <span id="notes-status">Auto-saved</span>
+                        <span id="notes-metrics">0 words • 0 chars</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

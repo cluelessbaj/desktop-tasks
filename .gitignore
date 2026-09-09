@@ -1,0 +1,22 @@
+# Binaries
+desktop-tasks
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binaries
+test-bin
+test-webview
+
+# OS and Editor files
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Config / Runtime files
+*.sock
+data.json
