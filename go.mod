@@ -2,6 +2,6 @@ module desktop-tasks
 
 go 1.27.0
 
-require localwebview v0.0.0
+require third_party v0.0.0
 
-replace localwebview => ./localwebview
+replace third_party => ./third_party

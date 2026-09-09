@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	webview "localwebview"
+	webview "third_party"
 )
 
 //go:embed assets/*
